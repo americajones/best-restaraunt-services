@@ -53,7 +53,7 @@ app.post("/api/tables", function (req, res) {
 
   tables.push(newTable);
   res.json(newTable);
-}
+});
 
 
 // Listener
