@@ -55,12 +55,14 @@ app.post("/api/tables", function (req, res) {
 
   if (tables.length >= 5) {
     waitlist.push(newTable);
+    res.json(false)
   } else {
     tables.push(newTable);
     console.log(tables);
+    res.json(true)
   }
 
-  res.json(tables);
+  // res.json(tables);
 
 });
 

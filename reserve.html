@@ -43,6 +43,8 @@ input {
 
 <body>
 
+
+
     <div class="container">
         <div class="jumbotron">
             <h1>Best Restaurant</h1>
@@ -85,15 +87,37 @@ input {
         </div>
 
     </div>
+
+    <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Your Reservation</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- <p>Modal body text goes here.</p> -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 
 
     <script type="text/javascript">
 
+        // $(".modal").hide();
+
 
         $("#submit").on("click", function (event) {
-            event.preventDefault();
+            // event.preventDefault();
 
             // Here we grab the form elements
             const newTable = {
@@ -117,19 +141,24 @@ input {
 
             $.post(currentURL + "/api/tables", newTable,
                 function (data) {
-
+                    console.log(data)
                     // If a table is available... tell user they are booked.
                     if (data == true) {
-                        alert("Yay! You are officially booked!")
+
+                        $(".modal").show();
+                        $(".modal-body").text("Your reservation was successful!")
+                        // alert("Yay! You are officially booked!")
+
                     }
 
                     // If a table is available... tell user they on the waiting list.
                     if (data == false) {
-                        alert("Sorry you are on the wait list")
+                        $(".modal").show();
+                        $(".modal-body").text("All tables have been booked, but you're on the waitlist!")
+                        // alert("Sorry you are on the wait list")
                     }
 
-                    // Clear the form when submitting
-                    
+
                 });
                 
                 const frm = document.getElementById('reserve');
@@ -138,6 +167,14 @@ input {
                 
             });
 
+    </script>
+
+
+
+    <script>
+        $("#close").on("click", function () {
+            $(".modal").hide();
+        })
     </script>
 
 </body>
