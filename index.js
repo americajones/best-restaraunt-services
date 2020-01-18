@@ -13,11 +13,11 @@ app.use(express.json());
 // table template
 const tables = [
   {
-    routeName: "table1",
-    id: "1",
-    name: "Keeley",
-    email: "keeley@email.com",
-    phone: 55555555555
+    "routeName": "table1",
+    "id": "1",
+    "name": "Keeley",
+    "email": "keeley@email.com",
+    "phone": 55555555555
   }
 ];
 
@@ -42,15 +42,16 @@ app.get("/reserve", function (req, res) {
 //json routes
 app.get("/api/tables", function (req, res) {
   return res.json(tables);
-})
+});
 
 app.get("/api/waitlist", function (req, res) {
   return res.json(waitlist);
-})
+});
 
 app.post("/api/tables", function (req, res) {
   const newTable = req.body;
   console.log(newTable);
+
 
   if (tables.length >= 5) {
     waitlist.push(newTable);
@@ -60,6 +61,7 @@ app.post("/api/tables", function (req, res) {
   }
 
   res.json(tables);
+
 });
 
 
