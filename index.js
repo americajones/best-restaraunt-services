@@ -7,17 +7,17 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 
 //allowing express to use json
-app.use(express.urlencoded({ extedned: true }));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // table template
 const tables = [
   {
-    routeName: "table1",
-    id: "1",
-    name: "Keeley",
-    email: "keeley@email.com",
-    phone: 55555555555
+    "routeName": "table1",
+    "id": "1",
+    "name": "Keeley",
+    "email": "keeley@email.com",
+    "phone": 55555555555
   }
 ];
 
@@ -38,22 +38,33 @@ app.get("/reserve", function (req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
 
-//json routes
-app.post("/api/tables", function (req, res) {
-  return res.json(tables);
-})
 
-app.post("/api/waitlist", function (req, res) {
+//json routes
+app.get("/api/tables", function (req, res) {
+  return res.json(tables);
+});
+
+app.get("/api/waitlist", function (req, res) {
   return res.json(waitlist);
-})
+});
 
 app.post("/api/tables", function (req, res) {
   const newTable = req.body;
   console.log(newTable);
 
-  tables.push(newTable);
-  res.json(newTable);
-})
+
+
+  if (tables.length >= 5) {
+    waitlist.push(newTable);
+  } else {
+    tables.push(newTable);
+    console.log(tables);
+  }
+
+  res.json(tables);
+
+});
+
 
 
 // Listener
