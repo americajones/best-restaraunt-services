@@ -13,7 +13,6 @@ app.use(express.json());
 // table template
 const tables = [
   {
-    "routeName": "table1",
     "id": "1",
     "name": "Keeley",
     "email": "keeley@email.com",
