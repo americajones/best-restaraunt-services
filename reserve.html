@@ -19,9 +19,9 @@
         <div class="jumbotron">
             <h1>Best Restaurant</h1>
             <h2>Best food, best reservation system</h2>
-            <a href="/tables.html"><button class="btn btn-info btn-lg"><span class="fa fa-eye"></span> View
+            <a href="/tables"><button class="btn btn-info btn-lg"><span class="fa fa-eye"></span> View
                     Tables</button></a>
-            <a href="/reserve.html"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>
+            <a href="/reserve"><button class="btn btn-danger btn-lg"><span class="fa fa-eye"></span>
                     Home</button></a>
         </div>
         <div class="row">
@@ -48,9 +48,7 @@
                         <input type="number" class="form-control" id="unique-id">
                     </div>
 
-
-                    <button id="submit" value="submit" class="btn btn-info btn-lg">Reserve Table</button>
-
+                    <button class="btn btn-danger btn-lg" id="submit">Submit</button>
 
                 </form>
 
@@ -65,15 +63,16 @@
 
     <script type="text/javascript">
 
+
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
             // Here we grab the form elements
-            const newReservation = {
-                customerName: $('#name').val().trim(),
-                phoneNumber: $('#phone').val().trim(),
-                customerEmail: $('#email').val().trim(),
-                customerID: $('#unique-id').val().trim()
+            const newTable = {
+                id: $("#unique-id").val().trim(),
+                name: $("#name").val().trim(),
+                email: $("#email").val().trim(),
+                phone: $("#phone").val().trim()
             };
 
             console.log($("#name").val())

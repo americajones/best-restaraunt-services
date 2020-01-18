@@ -53,6 +53,7 @@ app.post("/api/tables", function (req, res) {
   console.log(newTable);
 
 
+
   if (tables.length >= 5) {
     waitlist.push(newTable);
   } else {
@@ -63,6 +64,7 @@ app.post("/api/tables", function (req, res) {
   res.json(tables);
 
 });
+
 
 
 // Listener
