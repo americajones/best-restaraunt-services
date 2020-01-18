@@ -76,7 +76,7 @@
             };
 
             console.log($("#name").val())
-            console.log(newReservation);
+            console.log(newTable);
 
             // This line is the magic. It's very similar to the standard ajax function we used.
             // Essentially we give it a URL, we give it the object we want to send, then we have a "callback".
@@ -87,7 +87,7 @@
             // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
             var currentURL = window.location.origin;
 
-            $.post(currentURL + "/api/tables", newReservation,
+            $.post(currentURL + "/api/tables", newTable,
                 function (data) {
 
                     // If a table is available... tell user they are booked.
