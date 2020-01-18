@@ -1,0 +1,22 @@
+{
+  "name": "best-restaraunt-services",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/americajones/best-restaraunt-services.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/americajones/best-restaraunt-services/issues"
+  },
+  "homepage": "https://github.com/americajones/best-restaraunt-services#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
