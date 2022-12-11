@@ -17,6 +17,6 @@
   },
   "homepage": "https://github.com/americajones/best-restaraunt-services#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.3"
   }
 }
